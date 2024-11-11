@@ -38,11 +38,17 @@ export default function DuoStats() {
     }, [username]);    
     
     if (error) {
-        return <h3 className='dark:text-zinc-50'>{error.message}</h3>; 
+        return (
+            <div className='w-full h-screen bg-duolingo-400 p-2'>
+                <div className="bg-white dark:bg-black h-full w-full rounded-lg p-2">
+                    <h3 className='dark:text-zinc-50'>{error.message}</h3>
+                </div>
+            </div>
+        ); 
     }
     
     if (!data) {
-        return <h3 className='dark:text-zinc-50'>Loading...</h3>; 
+        return <h3 className='text-zinc-50'>Loading...</h3>; 
     }
 
     let isDoneToday = false;
