@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DuoStats
 
-## Getting Started
+DuoStats é uma aplicação web que exibe estatísticas de uma conta Duolingo específica. O projeto foi desenvolvido para ser usado como um painel na Twitch, permitindo que streamers mostrem o progresso de aprendizado de idiomas em tempo real aos espectadores.
 
-First, run the development server:
+## Imagem em Teste Local
+
+![DuoStats em Funcionamento na Twitch](./assets/visualização-twitch.png)
+
+## 🚀 Funcionalidades
+
+- Exibe o perfil e as estatísticas de uma conta do Duolingo, incluindo:
+  - Foto de perfil
+  - Nome de usuário
+  - Ofensiva atual (dias consecutivos de prática)
+  - XP total
+  - Status de prática do dia ("Sim" ou "Ainda não")
+- Painel responsivo para fácil integração na Twitch
+- Alterna as cores do texto e do layout com base no status do usuário
+
+## 📋 Pré-requisitos
+
+- Node.js (versão 14 ou superior)
+- NPM ou Yarn para gerenciar pacotes
+- Conta no Duolingo para exibir dados (opcional para testes, mas necessário para a integração em produção)
+
+## 🔧 Instalação
+
+1. **Clone o repositório:**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+    git clone https://github.com/gustavoobara/duostats.git
+    cd DuoStats
+```
+2. Instale as dependências:
+
+```bash
+    npm install
+    # ou
+    yarn install
+```
+3. Inicie o servidor de desenvolvimento:
+
+```bash
+    npm run dev
+    # ou
+    yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Acesse a aplicação:
+Abra seu navegador e vá para http://localhost:3000 para ver o painel DuoStats.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📂 Explicação do Código
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+A pagina principal, [`DuoStats`](./app/duostats/page.tsx), realiza uma chamada para a API pública do Duolingo, buscando informações do perfil do usuário. Aqui está um resumo de alguns elementos chave do código:
 
-## Learn More
+- **Busca de Dados**: A função `fetchData()` faz uma requisição à API do Duolingo para obter as estatísticas do usuário.
+- **Exibição de Dados**: Dados como nome, XP e ofensiva são exibidos condicionalmente e formatados com estilos dinâmicos baseados no status atual do usuário.
+- **Tratamento de Erros**: Se o usuário não for encontrado ou ocorrer algum erro na busca, uma mensagem de erro é exibida.
 
-To learn more about Next.js, take a look at the following resources:
+## 🌐 API Utilizada
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+O DuoStats utiliza a API pública do Duolingo não oficial, para buscar informações de usuário, acessível pelo seguinte endpoint:
+```bash
+    https://www.duolingo.com/2017-06-30/users?username={USERNAME}
+```
+>**Nota:** Esta API não é documentada oficialmente pelo Duolingo e pode estar sujeita a mudanças.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🛠️ Tecnologias Utilizadas
 
-## Deploy on Vercel
+- **React**: Biblioteca para a construção de interfaces de usuário.
+- **Next.js**: Framework React para renderização do lado do servidor e geração de sites estáticos.
+- **Tailwind CSS**: Framework de CSS para estilização rápida e responsiva.
+- **Duolingo API**: API pública não oficial para buscar estatísticas de usuários do Duolingo.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Como Contribuir
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Faça um fork do projeto.
+2. Crie uma nova branch para a sua feature (`git checkout -b feature/nova-feature`).
+3. Commit suas alterações (`git commit -m 'Adicionei uma nova feature'`).
+4. Faça um push para a branch (`git push origin feature/nova-feature`).
+5. Abra um Pull Request.
+
+## 📜 Licença
+
+Este projeto está licenciado sob a MIT License.
