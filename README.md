@@ -6,6 +6,12 @@ DuoStats é uma aplicação web que exibe estatísticas de uma conta Duolingo es
 
 ![DuoStats em Funcionamento na Twitch](./assets/visualização-twitch.png)
 
+## Futuras Funcionalidades
+
+- [x] Darkmode navegador
+- [ ] Darkmode twitch
+- [ ] Busca Dinâmica do usuário
+
 ## 🚀 Funcionalidades
 
 - Exibe o perfil e as estatísticas de uma conta do Duolingo, incluindo:
